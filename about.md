@@ -6,7 +6,7 @@ permalink: /about/
 
 # About
 
-Hi, I'm **Captain CSEC**, a cybersecurity and aviation expert with a passion for both. I blend my expertise in protecting digital systems with my fascination for the aviation industry to bring unique insights into the world of aviation cybersecurity. My mission is to provide readers with up-to-date information on the threats and defenses facing modern aircraft, as well as how the aviation industry is adapting to the ever-evolving digital landscape.
+Hi, I'm **Captain CSEC**, a cybersecurity and aviation expert with a passion for both. I blend my expertise in protecting digital systems with my fascination for the aviation industry to bring unique insights into the world of aviation cybersecurity and cybersecurity and/or aviation in general. My mission is to provide readers with up-to-date information on the threats and defenses facing modern aircraft, as well as how the aviation industry is adapting to the ever-evolving digital landscape.
 
 # More Information
 
