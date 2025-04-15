@@ -1,74 +1,30 @@
-#
-# Jekyll Now Blog Configuration
-# Customize your site info and metadata here
-#
-
-# Site Title (shown in header and browser tab)
-name: Blog by Hackatron
-
-# Short bio or site description (shown in header or homepage)
+# Basic blog info
+name: Galaxy Blog
 description: Cybersecurity/Aviation/Data insights from 30,000 feet down to the wire.
-
-# Profile picture or logo URL (can be external or in your /images/ folder)
+author: Captain CSEC
 avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
-# Site Author (used in feeds and some themes)
-author: Captain CSEC
-
-# Footer links (shows icons for each active profile)
+# Social links (shown in footer)
 footer-links:
   github: csec1
   linkedin: captaincsec
-  twitter: galaxyaviation
-  rss: rss
-  email: youremail@example.com
-  youtube: user/skysecurity
-  stackoverflow: users/1234567/captaincsec
+  email: you@example.com
 
-# Disqus commenting (optional)
-disqus: galaxyblog
-
-# Google Analytics tracking (optional)
-google_analytics: UA-XXXXXXXXX-X
-
-# Your website URL (important for SEO + RSS)
+# Blog URL and structure
 url: https://csec1.github.io
-
-#linkedin
-url: https://www.linkedin.com/in/s-asghar-243538120/
-
-
-# Base URL (leave empty for user sites like username.github.io)
 baseurl: ""
+permalink: /:title/
 
-# Permalinks (URL format for your posts)
-permalink: /:year/:month/:day/:title/
+# Optional features (can be enabled later)
+disqus:
+google_analytics:
 
-# Current version of Jekyll Now
-version: v1.2.0
-
-# Markdown processor & syntax highlighting
+# Markdown settings
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-
-# Sass/CSS options
-sass:
-  style: :expanded
 
 # Plugins
 gems:
   - jekyll-sitemap
   - jekyll-feed
-
-# Files to exclude from the generated site
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - CNAME
-
-
