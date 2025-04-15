@@ -6,9 +6,9 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 
 # Social links (shown in footer)
 footer-links:
-  github: csec1
-  linkedin: captaincsec
-  email: you@example.com
+  #github: csec1
+  linkedin: https://www.linkedin.com/in/s-asghar-243538120/
+  email: another_day@example.com
 
 # Blog URL and structure
 url: https://csec1.github.io
