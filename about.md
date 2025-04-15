@@ -14,10 +14,4 @@ When I'm not diving into cybersecurity/aviation research, I enjoy various things
 
 # Contact Me
 
-You can reach me via email at:  
-**captaincsec@example.com**
-OR
-via Linkedin @
-https://www.linkedin.com/in/s-asghar-243538120/
-
 Feel free to get in touch if you have questions about cybersecurity, aviation, or anything in between!
