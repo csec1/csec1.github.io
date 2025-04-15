@@ -18,9 +18,9 @@ html {
 }
 
 body {
-  background: #0a0f1c; /* Deep navy background */
+	background: $white;
   font: 18px/1.4 $helvetica;
-  color: #f0f2f5; /* Light text for contrast */
+  color: $darkGray;
 }
 
 .container {
@@ -32,8 +32,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: #ffffff; /* White headings */
+  color: $darkerGray;
   font-weight: bold;
+
   line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
@@ -68,12 +69,11 @@ p {
 }
 
 a {
-  color: #66b2ff; /* LinkedIn-style soft blue */
+  color: $blue;
   text-decoration: none;
-  cursor: pointer;
-
+	cursor: pointer;
   &:hover, &:active {
-    color: #99ccff;
+    color: $blue;
   }
 }
 
@@ -284,16 +284,6 @@ footer {
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
+// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
 @import "svg-icons";
-
-/* LinkedIn blue for post titles on index page */
-h2.post-title a {
-  color: #0A66C2;
-  text-decoration: none;
-}
-
-h2.post-title a:hover {
-  color: #084a94;
-  text-decoration: underline;
-}
