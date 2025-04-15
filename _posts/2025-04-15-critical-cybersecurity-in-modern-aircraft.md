@@ -10,7 +10,7 @@ categories: [aviation, cybersecurity]
 
 **Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/the-critical-significance-of-cybersecurity-in-modern-aircraft-a3d160ad0cbc).**
 
-![Cyber Aviation Banner](/images/cyber-aviation.jpg)
+![Cyber Aviation Banner](/images/cyber-aviation.png)
 
 There’s something almost poetic about flight—an orchestra of physics, engineering, and digital precision working together at 35,000 feet. But with all that innovation soaring through the skies, there’s a quieter, less romantic reality we need to face: modern aircraft are flying data centers, and that makes them high-value cyber targets.
 
