@@ -3,7 +3,7 @@ layout: post
 title: "Lateral Movement in Active Directory Networks: The Silent Threat Within"
 description: "Attack Path."
 date: 2025-02-18
-categories: [aviation, cybersecurity}
+categories: [aviation, cybersecurity]
 ---
 
 *By Captain CSEC, February 18, 2025*
