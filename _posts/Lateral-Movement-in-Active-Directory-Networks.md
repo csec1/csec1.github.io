@@ -10,7 +10,7 @@ categories: [aviation, cybersecurity}
 
 **Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/lateral-movement-in-active-directory-networks-the-silent-threat-within-d894368ba51d).**
 
-![Cyber Aviation Banner](/images/cyber-aviation.png)
+![Cyber Aviation Banner](/images/lateral_movement.png)
 
 In today’s interconnected world, organizations rely heavily on their IT infrastructure to run smoothly and securely. But within this intricate web, lurking in the shadows, are potential threats — sophisticated, often unnoticed, and very dangerous. One such threat is lateral movement in Active Directory (AD) networks, which can go undetected for long periods, silently wreaking havoc.
 
