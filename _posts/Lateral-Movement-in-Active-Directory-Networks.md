@@ -2,11 +2,11 @@
 layout: post
 title: "Lateral Movement in Active Directory Networks: The Silent Threat Within"
 description: "Attack Path."
-date: 2025-02-18
+date: 2025-04-16
 categories: [aviation, cybersecurity]
 ---
 
-*By Captain CSEC, February 18, 2025*
+*By Captain CSEC, April 16, 2025*
 
 **Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/lateral-movement-in-active-directory-networks-the-silent-threat-within-d894368ba51d).**
 
