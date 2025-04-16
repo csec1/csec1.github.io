@@ -10,7 +10,7 @@ categories: [aviation, cybersecurity]
 
 **Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/cybersecurity-in-aerospace-safeguarding-the-future-of-flight-and-space-24abedf0a87a).**
 
-![Cyber Aviation Banner](/images/cybersecurity_in_aerospace.png)
+![Cyber Aviation Banner](/images/cybersecurity-in-aerospace.png)
 
 
 As technology continues to revolutionize the aerospace industry, it’s impossible to ignore the growing importance of cybersecurity. The rapid advancements in aviation and space exploration rely more and more on digital systems to keep things running smoothly, from improving passenger experiences to ensuring the safety of flight operations. But as the industry becomes more connected and automated, the risks of cyber threats are rising. In an era where everything from your in-flight entertainment to mission-critical systems are controlled by digital networks, cybersecurity has become a cornerstone of protecting the skies — and beyond.
