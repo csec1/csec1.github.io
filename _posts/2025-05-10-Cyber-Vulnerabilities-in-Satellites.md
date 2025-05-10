@@ -30,6 +30,7 @@ II. Common Cyber Vulnerabilities in Satellite Systems
 Threat: Adversaries can spoof or brute-force access to the satellite’s control system.
 Impact: Could lead to satellite reorientation, service disruption, data exfiltration, or even satellite destruction.
 Example: Satellite jamming and spoofing campaigns by state actors targeting adversary ISR (Intelligence, Surveillance, Reconnaissance) assets.
+
 2. Ground Station Compromise
 
 Threat: Ground stations often use legacy systems with unpatched vulnerabilities, weak authentication, or insecure protocols (e.g., Telnet, FTP).
