@@ -88,6 +88,7 @@ Conclusion
 As satellites become software-centric and interconnected, cybersecurity must become a first-class design concern — not an afterthought. From hardening legacy ground stations to integrating post-quantum cryptography in orbit, satellite operators must anticipate both nation-state and non-state adversaries capable of exploiting the full satellite stack.
 
 The fusion of traditional IT security principles with aerospace systems engineering is the key to ensuring the resilience of space assets in an increasingly contested domain.
+
 ---
 
 ✈️ Interested in more on this topic? Drop your thoughts or questions in the comments—let’s keep the conversation flying.
