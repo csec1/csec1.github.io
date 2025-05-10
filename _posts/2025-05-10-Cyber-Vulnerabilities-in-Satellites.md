@@ -92,10 +92,10 @@ III. Advanced Cybersecurity Strategies for Satellite Systems
 
 IV. Policy and Governance Considerations
 
-    NIST SP 800–53 and CISA’s Space Cybersecurity Framework provide baseline controls but often lag behind real-world threats.
-    The US Space Force, ESA, and NATO have begun adopting space-specific cyber doctrines, including requirements for continuous monitoring, classified payload 
+    >NIST SP 800–53 and CISA’s Space Cybersecurity Framework provide baseline controls but often lag behind real-world threats.
+    >The US Space Force, ESA, and NATO have begun adopting space-specific cyber doctrines, including requirements for continuous monitoring, classified payload 
     segmentation, and supply chain transparency.
-    Inter-agency cooperation, standards alignment, and incident disclosure protocols will be essential in building collective defense for space assets.
+    >Inter-agency cooperation, standards alignment, and incident disclosure protocols will be essential in building collective defense for space assets.
     Conclusion
 
 As satellites become software-centric and interconnected, cybersecurity must become a first-class design concern — not an afterthought. From hardening legacy ground stations to integrating post-quantum cryptography in orbit, satellite operators must anticipate both nation-state and non-state adversaries capable of exploiting the full satellite stack.
