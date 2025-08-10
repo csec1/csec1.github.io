@@ -10,7 +10,7 @@ categories: [AI, ML, cybersecurity]
 
 **Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/the-overlooked-backbone-cybersecurity-in-ai-and-ml-design-b416e9b12e59).**
 
-![Cyber Aviation Banner](/images/cybersecurity-in-aerospace.png)
+![Cyber Aviation Banner](/images/Impact-of-Artificial-Intelligence-in-Cyber-Security.jpg)
 
 
 Artificial Intelligence and Machine Learning have become core to modern digital infrastructure — driving decisions, automating processes, and optimizing systems across industries. But as these models grow in complexity and influence, one crucial area is often neglected or bolted on too late in the pipeline: cybersecurity.
