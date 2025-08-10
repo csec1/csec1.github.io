@@ -29,35 +29,35 @@ They’re opaque. The black-box nature of many models makes it harder to detect 
 The Attack Surface is Broader Than You Think
 Let’s break down some critical vulnerability points in a typical ML lifecycle:
 
-1. Data Poisoning
+1. Data Poisoning:
 This occurs when adversaries manipulate the training data to bias model behavior. In supervised learning systems, even a small percentage of poisoned data can lead to targeted misclassifications.
 
 Example: An attacker injects mislabeled images into a facial recognition dataset so their own face is always classified as a trusted user.
 
 Mitigation: Differential privacy, robust training algorithms, and data provenance tracking are key here — but rarely implemented in practice.
 
-2. Model Inversion and Extraction
+2. Model Inversion and Extraction:
 Attackers can query a model and reconstruct training data or reverse-engineer model parameters. This is especially problematic in API-based ML services.
 
 Example: Membership inference attacks can determine whether a particular data point was in the training set — a privacy nightmare for healthcare or legal applications.
 
 Mitigation: Model hardening techniques like output obfuscation, regularization, and limiting query access can reduce this risk.
 
-3. Adversarial Inputs at Inference Time
+3. Adversarial Inputs at Inference Time:
 Adversarial examples — subtly modified inputs that cause misclassification — are perhaps the most well-known ML vulnerability. This is a live issue in image recognition, NLP, and even LLMs.
 
 Example: A stop sign with a few stickers is misclassified as a speed limit sign by an autonomous vehicle.
 
 Mitigation: Defensive distillation, adversarial training, and input validation can help, but again, there's no silver bullet.
 
-4. Supply Chain Risks in ML Ops
+4. Supply Chain Risks in ML Ops:
 ML systems increasingly rely on open-source code, third-party models, and pre-trained embeddings. Each of these components introduces supply chain risks.
 
 Example: A compromised pre-trained model downloaded from a public repo contains a backdoor that activates under certain inputs.
 
 Mitigation: Cryptographic signing of models, rigorous dependency auditing, and sandboxing third-party code are a start — yet rare in ML workflows.
 
-5. Model Misuse and Prompt Injection in Generative AI
+5. Model Misuse and Prompt Injection in Generative AI:
 With the rise of large language models and diffusion systems, new threat vectors like prompt injection, jailbreaking, and output leaking emerge.
 
 Example: An attacker crafts a prompt that bypasses safety filters and triggers a harmful or biased output.
@@ -69,13 +69,13 @@ Too many ML teams treat cybersecurity as a downstream problem, or assume that �
 
 We need to embed security into model design, training pipelines, and monitoring infrastructure. This includes:
 
-Threat modeling for ML systems (not just the surrounding app)
+>Threat modeling for ML systems (not just the surrounding app)
 
-Red-teaming AI models with realistic attack scenarios
+>Red-teaming AI models with realistic attack scenarios
 
-Continuous auditing and anomaly detection in model behavior
+>Continuous auditing and anomaly detection in model behavior
 
-Cross-functional collaboration between ML engineers and security professionals
+>Cross-functional collaboration between ML engineers and security professionals
 
 Final Thoughts: Secure by Design, Not by Afterthought
 As AI systems become decision-makers rather than decision-support tools, the cost of vulnerabilities skyrockets — not just in dollars, but in trust, safety, and real-world consequences.
