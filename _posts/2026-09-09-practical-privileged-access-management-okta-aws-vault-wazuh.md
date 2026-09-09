@@ -29,6 +29,7 @@ The goal was not simply to deploy individual security products. The goal was to 
 ![Architecture Diagram](/images/iam-pam-wazuh-architecture.png.png)
 *Figure 1: Privileged Access Management Architecture*
 ________________________________________
+
 1. Start with Identity, Not the Privileged Account
 The architecture begins with the enterprise identity layer.
 An operator authenticates through Okta, providing the initial identity assurance and MFA control. Okta represents the human identity layer; AWS should not need to become the system responsible for managing that human identity independently.
@@ -42,7 +43,12 @@ For a junior engineer, the simplest way to think about this is:
 Okta answers "Who are you?"
 IAM answers "What are you allowed to do?"
 Those are related questions, but they are not the same control.
+![Okta](/images/okta_user.png.png)
+
+![AWS](/images/okta_user_admin_thru_to_aws.png.png)
+*Figure 2 & 3: Alice Admin using Okta to get thru to AWS*
 ________________________________________
+
 2. Privileged Access Needs Another Control Layer
 Normal application access and privileged access should not be treated identically.
 A privileged operator may need access to infrastructure, secrets, administrative systems, or sensitive configuration. That means the architecture needs controls beyond ordinary authentication.
@@ -54,6 +60,7 @@ In this implementation, the concrete privileged credential-management component 
 That distinction matters.
 The project does not claim to have implemented tools that were not actually deployed. Instead, it demonstrates the underlying PAM security principles using the tools available in the environment.
 ________________________________________
+
 3. HashiCorp Vault Becomes the Privileged Credential Boundary
 The Vault deployment was deliberately separated from the general workload environment.
 A dedicated PAM/Vault VPC was created, with the Vault system placed inside a private subnet. The Vault EC2 instance had no public IP address.
@@ -67,6 +74,7 @@ This creates a useful principle for anyone reproducing the architecture:
 Protect the secret store with network controls before relying on application-level authorization.
 You want multiple independent controls.
 ________________________________________
+
 4. Vault Policy Turns the Secret Store into an Authorization Boundary
 Deploying Vault is only half the problem.
 A secrets engine without carefully defined policies simply becomes another place where sensitive information can be stored.
@@ -87,6 +95,7 @@ with a current KV version of 4.
 That version history is useful because privileged-access systems need more than a binary "secret exists" state.
 They need traceability.
 ________________________________________
+
 5. Version History Provides Another Audit Dimension
 Vault KV versioning provided evidence that the privileged record had undergone multiple tracked changes.
 The metadata showed four versions, with creation and update information associated with the different operations.
@@ -100,6 +109,7 @@ Conceptually:
 ![](/images/5.png)
 This separation is an important implementation lesson.
 ________________________________________
+
 6. Audit Logging Turns Activity into Evidence
 The Vault deployment had an audit device configured using the file backend.
 The audit configuration pointed to:
@@ -117,6 +127,7 @@ and:
 Vault recorded an authorized operation against a protected PAM resource.
 The second statement is evidence of an actual control operating.
 ________________________________________
+
 7. The Bastion Is an Administrative Gateway, Not a Shortcut Around Security
 The administrative gateway provides the controlled operational path into the private environment.
 Rather than making Vault directly accessible from the public Internet, administrative connectivity passes through the bastion.
@@ -129,6 +140,7 @@ The Vault EC2 instance was not treated as the Wazuh agent.
 The Wazuh agent was placed on the bastion endpoint.
 That allows the architecture to monitor the administrative endpoint without incorrectly representing the Vault service itself as a monitored Wazuh agent.
 ________________________________________
+
 8. Wazuh Adds Detection and Visibility
 The architecture adds Wazuh as the security-monitoring layer.
 The Wazuh deployment consists of the core components:
@@ -140,6 +152,7 @@ This changes the architecture from simply being a PAM/secret-management environm
 Vault answers questions around protected secrets and access policy.
 Wazuh provides another layer of security visibility around the infrastructure and endpoint.
 ________________________________________
+
 9. Why the Wazuh Network Path Matters
 The Wazuh communication paths were explicitly represented in the architecture.
 Agent telemetry uses TCP 1514, while agent enrollment uses TCP 1515.
@@ -150,6 +163,7 @@ The Wazuh components themselves were kept private rather than being exposed as p
 This follows the same principle used for Vault:
 Security infrastructure should have a smaller attack surface than the systems it protects.
 ________________________________________
+
 10. Temporary Internet Access Is Not Permanent Architecture
 One practical challenge during deployment was software installation.
 Private EC2 instances may need temporary outbound Internet access to retrieve packages or installation dependencies.
@@ -172,6 +186,7 @@ Vault provides secret-management policy, version history, and audit records.
 Wazuh provides endpoint and security-monitoring visibility.
 The controls therefore reinforce each other instead of existing as isolated products.
 ________________________________________
+
 12. What a Privileged-Access Event Should Look Like
 The most useful way to understand the implementation is to follow one hypothetical administrative operation.
 An operator begins with an authenticated enterprise identity.
@@ -214,6 +229,7 @@ The Wazuh evidence answers that.
 This is the mindset I would recommend when building security portfolios:
 Do not collect screenshots because they look technical. Collect screenshots because they prove a control.
 ________________________________________
+
 14. What This Architecture Demonstrates
 The project demonstrates several core security-engineering principles.
 Identity Federation
@@ -236,6 +252,7 @@ Defense in Depth
 No individual component is expected to solve the entire privileged-access problem.
 Identity, IAM, Vault, network controls, endpoint monitoring, and audit logging collectively create the security boundary.
 ________________________________________
+
 15. The Biggest Implementation Lesson
 The most important lesson from this project is that PAM is not a single product.
 It is a security architecture.
@@ -249,6 +266,7 @@ Network isolation without monitoring makes suspicious activity harder to detect.
 Monitoring without strong identity makes attribution difficult.
 The strength comes from the combination.
 ________________________________________
+
 16. Reproducing the Approach
 An engineer looking to reproduce this architecture should think in layers rather than attempting to deploy everything at once.
 Start with the identity model.
@@ -264,6 +282,7 @@ Finally, validate the architecture through evidence.
 The sequence matters because each layer depends on the trust boundary established by the previous one.
 The objective is not to create a turnkey production deployment from a blog post. The objective is to understand the security decisions well enough to reproduce the architecture safely in an appropriate lab or controlled environment.
 ________________________________________
+
 17. Evidence Should Tell the Story
 The final portfolio should not contain dozens of raw terminal screenshots.
 A small number of carefully selected artifacts are more effective.
@@ -278,6 +297,7 @@ That is ultimately what makes the project useful as a security-engineering portf
 It is not just a demonstration that several tools can be installed.
 It demonstrates how those tools can be assembled into a defensible privileged-access architecture.
 ________________________________________
+
 Conclusion
 This project started with a simple security requirement: privileged access should be controlled, protected, observable, and auditable.
 The resulting implementation connects enterprise identity through Okta and AWS IAM Identity Center, uses temporary AWS IAM roles for authorization, isolates privileged infrastructure inside private AWS networking, uses HashiCorp Vault for protected secrets and policy enforcement, routes administration through a bastion, and adds Wazuh for security monitoring and endpoint visibility.
