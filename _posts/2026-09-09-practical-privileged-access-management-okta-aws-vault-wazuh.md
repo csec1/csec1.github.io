@@ -43,9 +43,10 @@ For a junior engineer, the simplest way to think about this is:
 Okta answers "Who are you?"
 IAM answers "What are you allowed to do?"
 Those are related questions, but they are not the same control.
+
 ![Okta](/images/okta_user.png)
 
-![AWS](/images/okta_user_admin_thru_to_aws.png.png)
+![AWS](/images/okta_user_admin_thru_to_aws.png)
 *Figure 2 & 3: Alice Admin using Okta to get thru to AWS*
 ________________________________________
 
