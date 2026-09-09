@@ -33,7 +33,7 @@ An operator authenticates through Okta, providing the initial identity assurance
 The identity then reaches AWS IAM Identity Center, which provides the federation boundary into AWS.
 From there, AWS issues temporary access through an IAM role.
 The important concept here is separation of responsibilities:
-/images/1.png
+![](/images/1.png)
 This is fundamentally different from giving an administrator a permanent AWS access key.
 A long-lived credential creates a persistent authorization path. Federated temporary role access creates a much narrower window in which the identity can operate with the permissions assigned to that role.
 For a junior engineer, the simplest way to think about this is:
