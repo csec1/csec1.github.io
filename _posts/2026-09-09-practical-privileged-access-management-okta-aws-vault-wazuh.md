@@ -10,7 +10,7 @@ categories: [cybersecurity, pam, cloud-security, aws, identity]
 
 **Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/cybersecurity-in-aerospace-safeguarding-the-future-of-flight-and-space-24abedf0a87a).**
 
-![Cyber Aviation Banner](/images/cybersecurity-in-aerospace.png)
+![Cyber Aviation Banner](/images/title_image.png)
 
 
 Privileged access is one of those security problems that looks simple until you try to implement it properly.
