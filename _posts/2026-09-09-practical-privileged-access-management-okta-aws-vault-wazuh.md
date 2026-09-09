@@ -138,6 +138,9 @@ The second statement is evidence of an actual control operating.
 
 ![Vault log Example](/images/vault_audit_log_example.png)
 *Figure 6: Vault Audit Log Example - Vault ssh-ed in via Bastion using Peer-to-Peer*
+
+![Vault JIT Example](/images/vault_JIT_Implementation_example.png)
+*Figure 7: Vault JIT Implementation Example - Vault ssh-ed in via Bastion using Peer-to-Peer*
 ________________________________________
 
 7. The Bastion Is an Administrative Gateway, Not a Shortcut Around Security
