@@ -26,7 +26,7 @@ And, perhaps most importantly, can the entire sequence be reconstructed afterwar
 This project was built around those questions.
 The implementation combines Okta, AWS IAM Identity Center, AWS IAM, HashiCorp Vault, private AWS networking, a bastion host, and Wazuh into a practical privileged-access security architecture.
 The goal was not simply to deploy individual security products. The goal was to demonstrate how identity, authorization, privileged credentials, network isolation, monitoring, and audit evidence fit together as one security control plane.
-![Architecture Diagram](/images/iam-pam-wazuh-architecture.png)
+![Architecture Diagram](/images/iam-pam-wazuh-architecture.png.png)
 *Figure 1: Privileged Access Management Architecture*
 ________________________________________
 1. Start with Identity, Not the Privileged Account
