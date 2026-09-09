@@ -79,6 +79,9 @@ Security-group rules were kept focused on the required administrative path rathe
 This creates a useful principle for anyone reproducing the architecture:
 Protect the secret store with network controls before relying on application-level authorization.
 You want multiple independent controls.
+
+![Vault Policy Example](/images/vault_policy_example.png)
+*Figure 1: Vault Policy Example*
 ________________________________________
 
 4. Vault Policy Turns the Secret Store into an Authorization Boundary
