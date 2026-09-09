@@ -81,7 +81,7 @@ Protect the secret store with network controls before relying on application-lev
 You want multiple independent controls.
 
 ![Vault Policy Example](/images/vault_policy_example.png)
-*Figure 1: Vault Policy Example*
+*Figure 5: Vault Policy Example*
 ________________________________________
 
 4. Vault Policy Turns the Secret Store into an Authorization Boundary
