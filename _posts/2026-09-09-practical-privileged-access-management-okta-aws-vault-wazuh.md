@@ -64,7 +64,7 @@ The project does not claim to have implemented tools that were not actually depl
 ![RBAC](/images/Bob_Developer_confederated_via_Okta_started_EC2_successfully.png)
 
 ![Least Privelege](/images/Charlie_Auditor_confederated_via_Okta_denied_EC2_access.png)
-*Figure 2 & 3: Bob Developer confederated via Okta and IAM Identity Center - RBAC (shown above) Successfully Start EC2 Due to Permitted Temporary Access while Charlie Auditor confederated via Okta and IAM Identity Center Failed to Start EC2 (Least Privilege)*
+*Figure 3 & 4: Bob Developer confederated via Okta and IAM Identity Center - RBAC (shown above) Successfully Start EC2 Due to Permitted Temporary Access while Charlie Auditor confederated via Okta and IAM Identity Center Failed to Start EC2 (Least Privilege)*
 ________________________________________
 
 3. HashiCorp Vault Becomes the Privileged Credential Boundary
