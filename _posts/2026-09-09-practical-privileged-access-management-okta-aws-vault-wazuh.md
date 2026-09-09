@@ -100,7 +100,7 @@ The Vault policy determines what that identity can actually access.
 The test privileged record provided concrete evidence that the system was managing a versioned privileged-access object rather than simply storing an arbitrary file or password.
 The evidence showed the secret at:
 secret/pam/test-privileged
-with a current KV version of 4.
+with a current KV version of 4 (see Figure 5 above).
 That version history is useful because privileged-access systems need more than a binary "secret exists" state.
 They need traceability.
 ________________________________________
