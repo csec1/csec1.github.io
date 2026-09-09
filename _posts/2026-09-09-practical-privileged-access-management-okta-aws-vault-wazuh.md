@@ -81,7 +81,7 @@ Protect the secret store with network controls before relying on application-lev
 You want multiple independent controls.
 
 ![Vault Policy Example](/images/vault_policy_example.png)
-*Figure 5: Vault Policy Example*
+*Figure 5: Vault Policy Example - Vault ssh-ed in via Bastion using Peer-to-Peer*
 ________________________________________
 
 4. Vault Policy Turns the Secret Store into an Authorization Boundary
