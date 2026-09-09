@@ -45,21 +45,7 @@ ________________________________________
 Normal application access and privileged access should not be treated identically.
 A privileged operator may need access to infrastructure, secrets, administrative systems, or sensitive configuration. That means the architecture needs controls beyond ordinary authentication.
 The project therefore models the privileged-access sequence as:
-Identity
-   ↓
-Authentication
-   ↓
-AWS Role
-   ↓
-Privileged Access Request
-   ↓
-PAM Controls
-   ↓
-Credential / Secret Access
-   ↓
-Administrative Gateway
-   ↓
-Target System
+![](/images/2.png)
 The PAM layer represents the security decision surrounding privileged access.
 In a mature privileged-access architecture, this layer can incorporate approval, business justification, role-based authorization, Just-In-Time access, credential controls, session monitoring, and expiration.
 In this implementation, the concrete privileged credential-management component was HashiCorp Vault.
@@ -72,15 +58,7 @@ A dedicated PAM/Vault VPC was created, with the Vault system placed inside a pri
 This is an important architectural decision.
 A secrets-management system should not require direct Internet exposure merely because administrators need to manage it.
 The resulting trust boundary looks approximately like:
-Administrative Gateway
-        |
-        | private connectivity
-        v
-   Vault EC2
-   Private Subnet
-        |
-        v
- HashiCorp Vault
+![](/images/3.png)
 Connectivity was established using private AWS networking and VPC peering between the relevant environments.
 Security-group rules were kept focused on the required administrative path rather than exposing Vault broadly.
 This creates a useful principle for anyone reproducing the architecture:
@@ -96,15 +74,7 @@ secret/data/pam/*
 and the associated metadata:
 secret/metadata/pam/*
 The resulting model was:
-Privileged Identity
-       ↓
-Vault Authentication
-       ↓
-Vault Policy
-       ↓
-PAM Secret Path
-       ↓
-Secret
+![](/images/4.png)
 This is where the distinction between authentication and authorization becomes especially important.
 Authentication establishes the identity.
 The Vault policy determines what that identity can actually access.
@@ -125,11 +95,7 @@ Version history describes the lifecycle of the stored secret.
 Audit logging describes activity performed against Vault.
 Together they provide significantly stronger evidence.
 Conceptually:
-Vault KV Version History
-        +
-Vault Audit Log
-        ↓
-Better reconstruction of privileged activity
+![](/images/5.png)
 This separation is an important implementation lesson.
 ________________________________________
 6. Audit Logging Turns Activity into Evidence
@@ -153,13 +119,7 @@ ________________________________________
 The administrative gateway provides the controlled operational path into the private environment.
 Rather than making Vault directly accessible from the public Internet, administrative connectivity passes through the bastion.
 The resulting network relationship is:
-Administrator
-     ↓
-Administrative Gateway / Bastion
-     ↓
-Private Network
-     ↓
-Vault EC2
+![](/images/6.png)
 The bastion also became an important monitoring point.
 A Wazuh agent was deployed on the bastion so that activity occurring at this administrative boundary could feed into the security-monitoring layer.
 This is an important distinction:
@@ -170,21 +130,9 @@ ________________________________________
 8. Wazuh Adds Detection and Visibility
 The architecture adds Wazuh as the security-monitoring layer.
 The Wazuh deployment consists of the core components:
-Wazuh Manager
-      ↓
-Wazuh Indexer
-      ↓
-Wazuh Dashboard
+![](/images/7.png)
 The bastion hosts the Wazuh agent:
-Bastion
-   ↓
-Wazuh Agent
-   ↓
-Wazuh Manager
-   ↓
-Wazuh Indexer
-   ↓
-Wazuh Dashboard
+![](/images/8.png)
 The agent provides endpoint telemetry that can be processed by the Wazuh Manager and subsequently indexed and presented through the dashboard.
 This changes the architecture from simply being a PAM/secret-management environment into a security-monitoring environment.
 Vault answers questions around protected secrets and access policy.
@@ -195,18 +143,7 @@ The Wazuh communication paths were explicitly represented in the architecture.
 Agent telemetry uses TCP 1514, while agent enrollment uses TCP 1515.
 The architecture therefore separates the monitoring relationship from the administrative relationship.
 The conceptual flow is:
-Bastion
-   |
-   | Wazuh telemetry
-   | TCP 1514
-   v
-Wazuh Manager
-   |
-   v
-Wazuh Indexer
-   |
-   v
-Wazuh Dashboard
+![](/images/9.png)
 The Wazuh components themselves were kept private rather than being exposed as public-facing services.
 This follows the same principle used for Vault:
 Security infrastructure should have a smaller attack surface than the systems it protects.
@@ -215,11 +152,7 @@ ________________________________________
 One practical challenge during deployment was software installation.
 Private EC2 instances may need temporary outbound Internet access to retrieve packages or installation dependencies.
 The architecture therefore represented a temporary installation egress path:
-Private Wazuh EC2
-       ↓
-   NAT Gateway
-       ↓
-    Internet
+![](/images/10.png)
 This path was specifically treated as temporary.
 After installation, it was removed rather than becoming a permanent requirement for Wazuh's internal monitoring architecture.
 That distinction is important in infrastructure design.
@@ -230,32 +163,7 @@ If the answer is no, remove it.
 ________________________________________
 11. The Complete Security Story
 Putting the major components together gives the following architecture:
-Okta
-  ↓
-AWS IAM Identity Center
-  ↓
-Temporary IAM Role
-  ↓
-Privileged Operator
-  ↓
-Privileged Access Request
-  ↓
-PAM Controls
-  ↓
-HashiCorp Vault
-  ↓
-Administrative Gateway / Bastion
-  ├──→ Private Vault EC2
-  │
-  └──→ Private Wazuh EC2
-          ├── Wazuh Manager
-          ├── Wazuh Indexer
-          └── Wazuh Dashboard
-
-Bastion
-  └── Wazuh Agent
-          ↓
-      Wazuh Manager
+![](/images/11.png)
 Around this sits the audit and monitoring layer.
 AWS identity and role activity provides one source of evidence.
 Vault provides secret-management policy, version history, and audit records.
@@ -330,21 +238,7 @@ ________________________________________
 The most important lesson from this project is that PAM is not a single product.
 It is a security architecture.
 A privileged-access system becomes meaningful when multiple controls work together:
-Identity
-   +
-Authentication
-   +
-Authorization
-   +
-Privileged Credential Management
-   +
-Network Isolation
-   +
-Monitoring
-   +
-Audit
-   +
-Lifecycle / Expiration
+![](/images/12.png)
 If one layer is missing, the overall security story becomes weaker.
 For example, strong identity without authorization can still produce excessive privilege.
 Strong authorization without auditability makes investigations difficult.
@@ -377,19 +271,7 @@ The Vault policy screenshot demonstrates authorization.
 The Vault version/audit evidence demonstrates lifecycle and accountability.
 The Wazuh screenshots demonstrate monitoring.
 Together, these artifacts tell a coherent story:
-Who is the user?
-       ↓
-How did they authenticate?
-       ↓
-What AWS access did they receive?
-       ↓
-How was privileged access controlled?
-       ↓
-Where were privileged secrets protected?
-       ↓
-What happened during access?
-       ↓
-Where is the evidence?
+![](/images/13.png)
 That is ultimately what makes the project useful as a security-engineering portfolio.
 It is not just a demonstration that several tools can be installed.
 It demonstrates how those tools can be assembled into a defensible privileged-access architecture.
