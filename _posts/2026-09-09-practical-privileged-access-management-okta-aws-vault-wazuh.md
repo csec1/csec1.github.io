@@ -42,6 +42,7 @@ For a junior engineer, the simplest way to think about this is:
 Okta answers "Who are you?"
 IAM answers "What are you allowed to do?"
 Those are related questions, but they are not the same control.
+
 ________________________________________
 2. Privileged Access Needs Another Control Layer
 Normal application access and privileged access should not be treated identically.
