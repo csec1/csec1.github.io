@@ -8,7 +8,7 @@ categories: [cybersecurity, pam, cloud-security, aws, identity]
 
 *By Captain CSEC, September 09, 2026*
 
-**Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/cybersecurity-in-aerospace-safeguarding-the-future-of-flight-and-space-24abedf0a87a).**
+**Readers who want to see this blog by Hackatron on Medium should [click here](https://medium.com/@highroller039/cybersecurity-in-aerospace-safeguarding-the-future-of-flight-and-space-24abed87a).**
 
 ![Cyber Aviation Banner](/images/title_image.png)
 
