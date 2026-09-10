@@ -154,6 +154,9 @@ This is an important distinction:
 The Vault EC2 instance was not treated as the Wazuh agent.
 The Wazuh agent was placed on the bastion endpoint.
 That allows the architecture to monitor the administrative endpoint without incorrectly representing the Vault service itself as a monitored Wazuh agent.
+
+![Wazuh Agent Example](/images/wazuh_agent.png)
+*Figure 8: Wazuh Agent Implementation Example - Wazuh Agent Installed on Bastion While Wazuh Manager and Other Components Were on A Private EC2.
 ________________________________________
 
 8. Wazuh Adds Detection and Visibility
